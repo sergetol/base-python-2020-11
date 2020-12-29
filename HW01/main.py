@@ -29,10 +29,12 @@ def trace_and_time_call(func, indent: str = "____"):
 
 
 @trace_and_time_call
-def do_power(nums: [] = [], pwr: int = 2) -> []:
+def do_power(nums, pwr: int = 2) -> []:
     """
-    Calculate the power of pwr for elements of a list
+    Return list of the power of pwr for iterable elements
     """
+    if nums is None:
+        nums = []
     return list( map( pow, nums, [pwr] * len(nums) ) )
 
 
@@ -60,10 +62,12 @@ ODD_NUM_FILTER = 1
 PRIME_NUM_FILTER = 2
 
 @trace_and_time_call
-def do_filter(nums: [] = [], fltr = EVEN_NUM_FILTER) -> []:
+def do_filter(nums, fltr = EVEN_NUM_FILTER) -> []:
     """
-    Apply filter for a numbers list: even numbers (fltr = EVEN_NUM_FILTER) / odd numbers (fltr = ODD_NUM_FILTER) / prime numbers (fltr = PRIME_NUM_FILTER)
+    Return filtered numbers list: even numbers (fltr = EVEN_NUM_FILTER) / odd numbers (fltr = ODD_NUM_FILTER) / prime numbers (fltr = PRIME_NUM_FILTER)
     """
+    if nums is None:
+        nums = []
     if (fltr == EVEN_NUM_FILTER):
         return list( filter( (lambda x: mod(x, 2) == 0), nums ) )
     elif (fltr == ODD_NUM_FILTER):
